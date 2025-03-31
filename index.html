@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>GOFUN - 線上娛樂新選擇</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -40,7 +40,6 @@
       padding-bottom: 30px;
     }
     
-    /* 闪亮背景效果 */
     .container:before {
       content: '';
       position: absolute;
@@ -71,6 +70,7 @@
       height: auto;
       max-width: 180px;
       filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.5));
+      transform: translateZ(0);
     }
     
     .profile-section {
@@ -118,6 +118,7 @@
       box-shadow: 0 0 35px rgba(0, 229, 255, 0.7);
       object-fit: cover;
       background: linear-gradient(45deg, #2193b0, #6dd5ed);
+      transform: translateZ(0);
     }
     
     .profile-status {
@@ -218,7 +219,6 @@
       padding: 15px;
     }
     
-    /* 新样式：平台介绍单行 */
     .platform-intro {
       display: flex;
       align-items: center;
@@ -291,6 +291,7 @@
       border: 1px solid rgba(0, 229, 255, 0.3);
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
       position: relative;
+      will-change: transform;
     }
     
     .video-container:before {
@@ -311,11 +312,12 @@
       100% { transform: rotate(360deg); }
     }
     
-    .video-container video {
+    .video-container video, .video-container iframe {
       width: 100%;
       height: auto;
       display: block;
       background: #000;
+      transform: translateZ(0);
     }
     
     .reason-item {
@@ -396,6 +398,7 @@
       overflow: hidden;
       z-index: 1;
       letter-spacing: 1px;
+      transform: translateZ(0);
     }
     
     .cta-btn::before {
@@ -415,7 +418,7 @@
     }
     
     .cta-btn:active {
-      transform: scale(0.98);
+      transform: scale(0.98) translateZ(0);
     }
     
     .contact-btn {
@@ -433,6 +436,7 @@
       overflow: hidden;
       z-index: 1;
       letter-spacing: 1px;
+      transform: translateZ(0);
     }
     
     .contact-btn::before {
@@ -452,7 +456,7 @@
     }
     
     .contact-btn:active {
-      transform: scale(0.98);
+      transform: scale(0.98) translateZ(0);
     }
     
     .contact-info {
@@ -476,7 +480,6 @@
       margin-top: 5px;
     }
 
-    /* 浮动粒子效果 */
     .particles {
       position: absolute;
       top: 0;
@@ -508,7 +511,6 @@
       }
     }
     
-    /* 发光效果 */
     .glow {
       position: absolute;
       width: 150px;
@@ -519,13 +521,11 @@
       z-index: 0;
     }
     
-    /* 闪烁动画 */
     @keyframes blink {
       0%, 100% { opacity: 0.1; }
       50% { opacity: 0.7; }
     }
     
-    /* 波浪动画背景 */
     .wave {
       position: absolute;
       bottom: 0;
@@ -543,26 +543,123 @@
       0% { background-position-x: 0; }
       100% { background-position-x: 1200px; }
     }
+    
+    .optimized-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: translateZ(0);
+      will-change: transform;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+    
+    .crypto-icon {
+      height: 32px;
+      width: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 3px;
+      transform: translateZ(0);
+    }
+    
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .optimized-image {
+        image-rendering: -webkit-optimize-contrast;
+      }
+    }
+    
+    .section-header.platform-intro {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      background: linear-gradient(90deg, #001428, #003456);
+      border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+      padding: 15px;
+    }
+    
+    .platform-title {
+      color: #00e5ff;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-right: 15px;
+      white-space: nowrap;
+    }
+    
+    .platform-desc {
+      color: #fff;
+      font-size: 0.9rem;
+      display: block;
+      margin-top: 5px;
+    }
+    
+    .video-flex-container {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      margin: 15px 0;
+    }
+    
+    .video-card {
+      flex: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 229, 255, 0.3);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      position: relative;
+      background: #001428;
+    }
+    
+    .video-content {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 比例 */
+      overflow: hidden;
+    }
+    
+    .video-content img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      transform: translateZ(0);
+    }
+    
+    .video-caption {
+      padding: 12px;
+      text-align: center;
+      color: #fff;
+      font-size: 0.95rem;
+      background: rgba(0, 20, 40, 0.8);
+    }
+    
+    .video-logo {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 80px;
+      height: auto;
+      transform: translateZ(0);
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="particles" id="particles">
-      <!-- JS will insert particles here -->
-    </div>
-    
+    <div class="particles" id="particles"></div>
     <div class="wave"></div>
     
     <header class="header">
-      <img src="images/logo.png" alt="GOFUN! 加密賭場" class="header-logo">
+      <img src="images/logo.png" alt="GOFUN! 加密賭場" class="header-logo" srcset="images/logo.png 1x, images/logo@2x.png 2x, images/logo@3x.png 3x">
     </header>
     
-    <!-- 替换原个人资料栏位为图片 -->
     <section class="section" style="margin-top: 20px;">
       <div class="section-content">
         <div style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 229, 255, 0.3); box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);">
-          <!-- 使用img标签显示图片 -->
-          <img src="images/photo_2025-04-01_01-31-54.jpg" alt="Banner Image" style="width: 100%; height: auto; display: block;">
+          <img src="images/photo_2025-04-01_01-31-54.jpg" alt="Banner Image" class="optimized-image" srcset="images/photo_2025-04-01_01-31-54.jpg 1x, images/photo_2025-04-01_01-31-54@2x.jpg 2x, images/photo_2025-04-01_01-31-54@3x.jpg 3x">
         </div>
       </div>
     </section>
@@ -576,7 +673,7 @@
         </div>
       </div>
       <div class="section-content" style="margin-top: 15px;">
-        <!-- 将视频分成左右两部分 -->
+
         <div style="display: flex; gap: 15px; margin-bottom: 10px;">
           <!-- 左侧视频 -->
           <div style="flex: 1;">
@@ -615,14 +712,13 @@
           <span class="reason-number">3</span>支援多種上下分渠道 USDT公鏈可查！
           <span class="reason-detail">提款不管多少 通通 10分鐘到你錢包！</span>
           
-          <!-- 六个加密货币图标 - 居中排列 -->
           <div style="position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 15px; flex-wrap: wrap; padding: 0 10px;">
-            <img src="images/TRX.webp" alt="TRON" style="height: 32px; width: auto; border-radius: 50%; box-shadow: 0 0 10px rgba(238, 53, 68, 0.6); background-color: rgba(0, 0, 0, 0.2); padding: 3px;">
-            <img src="images/USDT.webp" alt="USDT" style="height: 32px; width: auto; border-radius: 50%; box-shadow: 0 0 10px rgba(38, 161, 123, 0.6); background-color: rgba(0, 0, 0, 0.2); padding: 3px;">
-            <img src="images/BTC.webp" alt="Bitcoin" style="height: 32px; width: auto; border-radius: 50%; box-shadow: 0 0 10px rgba(255, 215, 0, 0.6); background-color: rgba(0, 0, 0, 0.2); padding: 3px;">
-            <img src="images/ETH.webp" alt="Ethereum" style="height: 32px; width: auto; border-radius: 50%; box-shadow: 0 0 10px rgba(115, 136, 255, 0.6); background-color: rgba(0, 0, 0, 0.2); padding: 3px;">
-            <img src="images/img_pay5.png" alt="Payment Option 5" style="height: 32px; width: auto; border-radius: 50%; box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); background-color: rgba(0, 0, 0, 0.2); padding: 3px;">
-            <img src="images/IMG_5434.PNG" alt="Payment Option 6" style="height: 32px; width: auto; border-radius: 50%; box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); background-color: rgba(0, 0, 0, 0.2); padding: 3px;">
+            <img src="images/TRX.webp" alt="TRON" class="crypto-icon" srcset="images/TRX.webp 1x, images/TRX@2x.webp 2x, images/TRX@3x.webp 3x">
+            <img src="images/USDT.webp" alt="USDT" class="crypto-icon" srcset="images/USDT.webp 1x, images/USDT@2x.webp 2x, images/USDT@3x.webp 3x">
+            <img src="images/BTC.webp" alt="Bitcoin" class="crypto-icon" srcset="images/BTC.webp 1x, images/BTC@2x.webp 2x, images/BTC@3x.webp 3x">
+            <img src="images/ETH.webp" alt="Ethereum" class="crypto-icon" srcset="images/ETH.webp 1x, images/ETH@2x.webp 2x, images/ETH@3x.webp 3x">
+            <img src="images/img_pay5.png" alt="Payment Option 5" class="crypto-icon" srcset="images/img_pay5.png 1x, images/img_pay5@2x.png 2x, images/img_pay5@3x.png 3x">
+            <img src="images/IMG_5434.PNG" alt="Payment Option 6" class="crypto-icon" srcset="images/IMG_5434.PNG 1x, images/IMG_5434@2x.PNG 2x, images/IMG_5434@3x.PNG 3x">
           </div>
         </div>
       </div>
@@ -635,33 +731,29 @@
       </div>
       
       <div class="section-content" style="padding-top: 5px;">
-        <!-- 第一对：标题+图片 -->
         <p class="promo-text">GoFun!福利Fun最滿🧧
           註冊天天抽幸運輪盤 100%中獎
           最高8888USDT😍</p>
         <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); margin: 10px 0 20px;">
-          <img src="images/輪盤.jpg" alt="幸運輪盤" style="width: 100%; height: auto; display: block;">
+          <img src="images/輪盤.jpg" alt="幸運輪盤" class="optimized-image" srcset="images/輪盤.jpg 1x, images/輪盤@2x.jpg 2x, images/輪盤@3x.jpg 3x">
         </div>
         
-        <!-- 第二对：标题+图片 -->
         <p class="promo-text">GoFun退水! Fun到你家淹水💦
           全網退水最高！1.2%天天退</p>
         <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); margin: 10px 0 20px;">
-          <img src="images/反水.jpg" alt="Fun到你家淹水" style="width: 100%; height: auto; display: block;">
+          <img src="images/反水.jpg" alt="Fun到你家淹水" class="optimized-image" srcset="images/反水.jpg 1x, images/反水@2x.jpg 2x, images/反水@3x.jpg 3x">
         </div>
         
-        <!-- 第三对：标题+图片 -->
         <p class="promo-text">寂寞不知Fun哪裡?GoFun空降Fun給你💕
           每月流水達標！網紅小模任你選
           不管你在哪 空降到你身邊讓你不寂寞</p>
         <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); margin: 10px 0 20px;">
-          <img src="images/活動1.webp" alt="空降Fun給你" style="width: 100%; height: auto; display: block;">
+          <img src="images/活動1.webp" alt="空降Fun給你" class="optimized-image" srcset="images/活動1.webp 1x, images/活動1@2x.webp 2x, images/活動1@3x.webp 3x">
         </div>
       </div>
     </section>
     
     <section class="section">
-      <!-- 添加新标题 -->
       <div class="section-header" style="text-align: center; padding: 15px 0; background: rgba(0, 229, 255, 0.1); margin-bottom: 10px; border-radius: 10px;">
         <h2 style="color: #00e5ff; font-weight: 700; font-size: 1.5rem; text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);">現在立即玩再領88U 一同GoFun</h2>
       </div>
@@ -671,15 +763,15 @@
         <h3 style="flex: 1; text-align: center; color: #00e5ff; font-weight: 700; font-size: 1.1rem;">提款教學</h3>
       </div>
       <div class="section-content">
-        <div style="display: flex; gap: 15px; margin-bottom: 10px;">
-          <div style="flex: 1;">
+        <div style="display: flex; gap: 15px; margin-bottom: 10px;" class="video-flex-container">
+          <div style="flex: 1;" class="video-flex-item">
             <div class="video-container">
-              <iframe width="100%" height="315" src="https://www.youtube.com/embed/PTCTuttqDsE?autoplay=1&loop=1&playlist=PTCTuttqDsE&mute=1" title="註冊教學" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/tHY1jiBFb1g?autoplay=1&loop=1&playlist=tHY1jiBFb1g&mute=1" title="註冊教學" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
           </div>
-          <div style="flex: 1;">
+          <div style="flex: 1;" class="video-flex-item">
             <div class="video-container">
-              <iframe width="100%" height="315" src="https://www.youtube.com/embed/M704TPsbUXY?autoplay=1&loop=1&playlist=M704TPsbUXY&mute=1" title="提款教學" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe width="100%" height="315" src="https://www.youtube.com/embed/rcyZlUYjFZA?autoplay=1&loop=1&playlist=rcyZlUYjFZA&mute=1" title="提款教學" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
             </div>
           </div>
         </div>
@@ -699,28 +791,23 @@
   </div>
 
   <script>
-    // 动态生成粒子效果
     document.addEventListener('DOMContentLoaded', function() {
       const particlesContainer = document.getElementById('particles');
       const particleCount = 20;
       
-      // 创建粒子
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('span');
         particle.className = 'particle';
         
-        // 随机大小和位置
         const size = Math.random() * 4 + 1;
         particle.style.width = size + 'px';
         particle.style.height = size + 'px';
         particle.style.left = Math.random() * 100 + 'vw';
         particle.style.top = Math.random() * 100 + 'vh';
         
-        // 设置不同颜色
         const colors = ['#00e5ff', '#0099cc', '#1ec3ff', '#007bff'];
         particle.style.background = colors[Math.floor(Math.random() * colors.length)];
         
-        // 动画效果
         const duration = Math.random() * 15 + 10;
         particle.style.animation = `float ${duration}s linear infinite`;
         particle.style.opacity = Math.random() * 0.3 + 0.1;
@@ -728,21 +815,17 @@
         particlesContainer.appendChild(particle);
       }
       
-      // 创建发光效果
       for (let i = 0; i < 5; i++) {
         const glow = document.createElement('div');
         glow.className = 'glow';
         
-        // 随机位置
         glow.style.left = Math.random() * 100 + 'vw';
         glow.style.top = Math.random() * 100 + 'vh';
         
-        // 随机大小
         const size = Math.random() * 100 + 100;
         glow.style.width = size + 'px';
         glow.style.height = size + 'px';
         
-        // 动画效果
         const duration = Math.random() * 5 + 3;
         glow.style.animation = `blink ${duration}s ease-in-out infinite`;
         
