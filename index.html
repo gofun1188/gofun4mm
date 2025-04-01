@@ -557,12 +557,10 @@
       <img src="images/logo.png" alt="GOFUN! 加密賭場" class="header-logo">
     </header>
     
-    
     <section class="section" style="margin-top: 20px;">
       <div class="section-content">
         <div style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 229, 255, 0.3); box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);">
-          
-          <img src="images/photo_2025-04-01_01-31-54.jpg" alt="Banner Image" style="width: 100%; height: auto; display: block;">
+          <video src="images/m44.mp4" controls style="width: 100%; height: auto; display: block;"></video>
         </div>
       </div>
     </section>
@@ -576,7 +574,7 @@
         </div>
       </div>
       <div class="section-content" style="margin-top: 15px;">
-       
+        <!-- 将视频分成左右两部分 -->
         <div style="display: flex; gap: 15px; margin-bottom: 10px;">
           <!-- 左侧视频 -->
           <div style="flex: 1;">
@@ -615,7 +613,7 @@
           <span class="reason-number">3</span>支援多種上下分渠道 USDT公鏈可查！
           <span class="reason-detail">提款不管多少 通通 10分鐘到你錢包！</span>
           
-          
+          <!-- 六个加密货币图标 - 居中排列 -->
           <div style="position: absolute; bottom: 10px; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 15px; flex-wrap: wrap; padding: 0 10px;">
             <img src="images/TRX.webp" alt="TRON" style="height: 32px; width: auto; border-radius: 50%; box-shadow: 0 0 10px rgba(238, 53, 68, 0.6); background-color: rgba(0, 0, 0, 0.2); padding: 3px;">
             <img src="images/USDT.webp" alt="USDT" style="height: 32px; width: auto; border-radius: 50%; box-shadow: 0 0 10px rgba(38, 161, 123, 0.6); background-color: rgba(0, 0, 0, 0.2); padding: 3px;">
@@ -635,7 +633,7 @@
       </div>
       
       <div class="section-content" style="padding-top: 5px;">
-      
+        <!-- 第一对：标题+图片 -->
         <p class="promo-text">GoFun!福利Fun最滿🧧
           註冊天天抽幸運輪盤 100%中獎
           最高8888USDT😍</p>
@@ -643,14 +641,14 @@
           <img src="images/輪盤.jpg" alt="幸運輪盤" style="width: 100%; height: auto; display: block;">
         </div>
         
-     
+        <!-- 第二对：标题+图片 -->
         <p class="promo-text">GoFun退水! Fun到你家淹水💦
           全網退水最高！1.2%天天退</p>
         <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); margin: 10px 0 20px;">
           <img src="images/反水.jpg" alt="Fun到你家淹水" style="width: 100%; height: auto; display: block;">
         </div>
         
-
+        <!-- 第三对：标题+图片 -->
         <p class="promo-text">寂寞不知Fun哪裡?GoFun空降Fun給你💕
           每月流水達標！網紅小模任你選
           不管你在哪 空降到你身邊讓你不寂寞</p>
@@ -661,7 +659,7 @@
     </section>
     
     <section class="section">
-   
+      <!-- 添加新标题 -->
       <div class="section-header" style="text-align: center; padding: 15px 0; background: rgba(0, 229, 255, 0.1); margin-bottom: 10px; border-radius: 10px;">
         <h2 style="color: #00e5ff; font-weight: 700; font-size: 1.5rem; text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);">現在立即玩再領88U 一同GoFun</h2>
       </div>
@@ -699,28 +697,28 @@
   </div>
 
   <script>
-
+    // 动态生成粒子效果
     document.addEventListener('DOMContentLoaded', function() {
       const particlesContainer = document.getElementById('particles');
       const particleCount = 20;
       
-  
+      // 创建粒子
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('span');
         particle.className = 'particle';
         
-        
+        // 随机大小和位置
         const size = Math.random() * 4 + 1;
         particle.style.width = size + 'px';
         particle.style.height = size + 'px';
         particle.style.left = Math.random() * 100 + 'vw';
         particle.style.top = Math.random() * 100 + 'vh';
         
-    
+        // 设置不同颜色
         const colors = ['#00e5ff', '#0099cc', '#1ec3ff', '#007bff'];
         particle.style.background = colors[Math.floor(Math.random() * colors.length)];
         
-       
+        // 动画效果
         const duration = Math.random() * 15 + 10;
         particle.style.animation = `float ${duration}s linear infinite`;
         particle.style.opacity = Math.random() * 0.3 + 0.1;
@@ -728,21 +726,21 @@
         particlesContainer.appendChild(particle);
       }
       
-    
+      // 创建发光效果
       for (let i = 0; i < 5; i++) {
         const glow = document.createElement('div');
         glow.className = 'glow';
         
-     
+        // 随机位置
         glow.style.left = Math.random() * 100 + 'vw';
         glow.style.top = Math.random() * 100 + 'vh';
         
-
+        // 随机大小
         const size = Math.random() * 100 + 100;
         glow.style.width = size + 'px';
         glow.style.height = size + 'px';
         
-    
+        // 动画效果
         const duration = Math.random() * 5 + 3;
         glow.style.animation = `blink ${duration}s ease-in-out infinite`;
         
