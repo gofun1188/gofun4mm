@@ -18,6 +18,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
     <meta charset="UTF-8">
     <title>GoFun - 限時首存福利</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -43,6 +44,51 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
         text-decoration: none;
         color: inherit;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* ===== 新增：頂部快速註冊條 ===== */
+      .top-register-bar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background: linear-gradient(90deg, #00ffff, #0099cc);
+        padding: 8px 15px;
+        z-index: 1001;
+        text-align: center;
+        box-shadow: 0 2px 10px rgba(0, 255, 255, 0.4);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .top-register-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .top-register-text {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #000;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+      }
+
+      .top-register-btn {
+        background: rgba(0, 0, 0, 0.15);
+        color: #000;
+        padding: 6px 20px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .top-register-btn:hover {
+        background: rgba(0, 0, 0, 0.25);
+        transform: scale(1.05);
       }
 
       .container {
@@ -94,7 +140,7 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 30px 20px;
+        padding: 25px 20px;
         position: relative;
         z-index: 1;
         background: rgba(0, 0, 0, 0.4);
@@ -104,7 +150,7 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
 
       .header-logo {
         height: auto;
-        max-width: 200px;
+        max-width: 180px;
         filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
         transition: all 0.3s ease;
       }
@@ -458,7 +504,53 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
         background: linear-gradient(45deg, #ff00ff, #00ffff, #ffaa00);
       }
 
+      /* ===== 新增：半屏廣告專用檢測和優化 ===== */
+      @media (max-height: 500px) {
+        .top-register-bar {
+          padding: 6px 15px;
+        }
+
+        .top-register-text {
+          font-size: 0.8rem;
+        }
+
+        .top-register-btn {
+          padding: 4px 15px;
+          font-size: 0.8rem;
+        }
+
+        .header {
+          padding: 15px 20px;
+        }
+
+        .header-logo {
+          max-width: 140px;
+        }
+
+        .promo-details {
+          margin-bottom: 20px;
+        }
+
+        .details-header {
+          padding: 20px;
+        }
+
+        .details-content {
+          padding: 20px;
+        }
+      }
+
       @media (max-width: 768px) {
+        .top-register-content {
+          flex-direction: row;
+          gap: 10px;
+        }
+
+        .top-register-text {
+          font-size: 0.85rem;
+          flex: 1;
+        }
+
         .promo-title {
           font-size: 1.8rem;
           letter-spacing: 1px;
@@ -505,6 +597,15 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
       }
 
       @media (max-width: 480px) {
+        .top-register-text {
+          font-size: 0.8rem;
+        }
+
+        .top-register-btn {
+          padding: 5px 12px;
+          font-size: 0.8rem;
+        }
+
         .promo-title {
           font-size: 1.6rem;
         }
@@ -525,6 +626,19 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
         .fixed-btn {
           font-size: 0.85rem;
           padding: 12px 24px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .top-register-content {
+          flex-direction: column;
+          gap: 5px;
+          text-align: center;
+        }
+
+        .top-register-btn {
+          align-self: center;
+          width: auto;
         }
       }
 
@@ -556,6 +670,16 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
     </style>
   </head>
   <body>
+    <!-- 新增：頂部快速註冊條 -->
+    <div class="top-register-bar">
+      <div class="top-register-content">
+        <div class="top-register-text">🎁 限時首存100%優惠 - 最高1288U！</div>
+        <a href="https://97y.me/5DbNf" class="top-register-btn" id="topRegisterBtn" data-fb-track="CompleteRegistration" data-pixel-id="524853043989985">
+          快速註冊
+        </a>
+      </div>
+    </div>
+
     <div class="container">
       <div class="bg-animation" id="bgAnimation"></div>
       <div class="tech-grid"></div>
@@ -563,8 +687,6 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
       <header class="header fade-in">
         <img src="images/logo.png" alt="GoFun" class="header-logo">
       </header>
-
-
 
       <section class="hero-section reveal">
         <img src="images/限时活动.webp" alt="限時活動" class="promo-image">
@@ -609,8 +731,6 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
         </div>
       </section>
 
-
-
       <div class="contact-info reveal">
         參與活動後，請聯繫客服
         <span class="contact-highlight">✨ 激活您的專屬福利！✨</span>
@@ -625,26 +745,31 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
 
     <script>
       async function updateLinkByLocation() {
-        const registerBtn = document.getElementById('registerBtn');
+        const registerBtns = [
+          document.getElementById('registerBtn'),
+          document.getElementById('topRegisterBtn')
+        ];
 
         try {
           const response = await fetch('https://ipapi.co/json/');
           const data = await response.json();
           const countryCode = data.country_code;
 
-          if (countryCode === 'KH' || countryCode === 'CN') {
-            registerBtn.href = 'https://97y.me/5FhUL';
-          } else {
-            registerBtn.href = 'https://97y.me/5DbNf';
-          }
+          const newHref = (countryCode === 'KH' || countryCode === 'CN') ?
+            'https://97y.me/5FhUL' : 'https://97y.me/5DbNf';
+
+          registerBtns.forEach(btn => {
+            if (btn) btn.href = newHref;
+          });
 
         } catch (error) {
           const language = navigator.language || navigator.userLanguage;
-          if (language.includes('zh-CN') || language.includes('km')) {
-            registerBtn.href = 'https://97y.me/5FhUL';
-          } else {
-            registerBtn.href = 'https://97y.me/5DbNf';
-          }
+          const newHref = (language.includes('zh-CN') || language.includes('km')) ?
+            'https://97y.me/5FhUL' : 'https://97y.me/5DbNf';
+
+          registerBtns.forEach(btn => {
+            if (btn) btn.href = newHref;
+          });
         }
       }
 
@@ -666,57 +791,100 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
 
       // 设置Facebook事件追踪
       function setupFacebookTracking() {
-        const registerBtn = document.getElementById('registerBtn');
-        
-        registerBtn.addEventListener('click', function(e) {
-          // Facebook标准事件追踪
-          if (typeof fbq !== 'undefined') {
-            // CompleteRegistration 事件
-            fbq('track', 'CompleteRegistration', {
-              content_name: 'GoFun限时首存优惠注册',
-              content_category: '在线娱乐优惠',
-              value: 1288.00,
-              currency: 'USD',
-              content_ids: ['gofun_promo_register'],
-              contents: [{
-                id: 'gofun_promo_register',
-                quantity: 1
-              }]
-            });
-            
-            // Lead 事件
-            fbq('track', 'Lead', {
-              content_name: 'GoFun首存优惠按钮点击',
-              content_category: '游戏平台推广',
-              value: 1288.00,
-              currency: 'USD'
+        const registerBtns = [
+          document.getElementById('registerBtn'),
+          document.getElementById('topRegisterBtn')
+        ];
+
+        registerBtns.forEach(btn => {
+          if (btn) {
+            btn.addEventListener('click', function(e) {
+              // Facebook标准事件追踪
+              if (typeof fbq !== 'undefined') {
+                // CompleteRegistration 事件
+                fbq('track', 'CompleteRegistration', {
+                  content_name: 'GoFun限时首存优惠注册',
+                  content_category: '在线娱乐优惠',
+                  value: 1288.00,
+                  currency: 'USD',
+                  content_ids: ['gofun_promo_register'],
+                  contents: [{
+                    id: 'gofun_promo_register',
+                    quantity: 1
+                  }]
+                });
+
+                // Lead 事件
+                fbq('track', 'Lead', {
+                  content_name: 'GoFun首存优惠按钮点击',
+                  content_category: '游戏平台推广',
+                  value: 1288.00,
+                  currency: 'USD'
+                });
+              }
+
+              // 涟漪效果
+              const ripple = document.createElement('div');
+              ripple.style.position = 'absolute';
+              ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+              ripple.style.borderRadius = '50%';
+              ripple.style.transform = 'scale(0)';
+              ripple.style.animation = 'ripple 0.6s linear';
+              ripple.style.left = (e.offsetX - 10) + 'px';
+              ripple.style.top = (e.offsetY - 10) + 'px';
+              ripple.style.width = '20px';
+              ripple.style.height = '20px';
+
+              this.appendChild(ripple);
+
+              setTimeout(() => {
+                ripple.remove();
+              }, 600);
             });
           }
-          
-          // 涟漪效果
-          const ripple = document.createElement('div');
-          ripple.style.position = 'absolute';
-          ripple.style.background = 'rgba(255, 255, 255, 0.6)';
-          ripple.style.borderRadius = '50%';
-          ripple.style.transform = 'scale(0)';
-          ripple.style.animation = 'ripple 0.6s linear';
-          ripple.style.left = (e.offsetX - 10) + 'px';
-          ripple.style.top = (e.offsetY - 10) + 'px';
-          ripple.style.width = '20px';
-          ripple.style.height = '20px';
-
-          this.appendChild(ripple);
-
-          setTimeout(() => {
-            ripple.remove();
-          }, 600);
         });
       }
+
+      // 半屏廣告檢測
+      function detectHalfScreenAd() {
+        // 檢測視窗高度，如果太小可能是半屏廣告
+        if (window.innerHeight < 500) {
+          document.body.classList.add('half-screen-mode');
+
+          // 可以添加額外的半屏優化邏輯
+          console.log('檢測到可能的半屏廣告環境');
+
+          // 確保頂部註冊條更加突出
+          const topBar = document.querySelector('.top-register-bar');
+          if (topBar) {
+            topBar.style.background = 'linear-gradient(90deg, #ff6b00, #ff8c42)';
+            topBar.style.animation = 'pulse 2s infinite';
+          }
+        }
+      }
+
+      // 添加脈衝動畫
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes pulse {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.02); }
+          100% { transform: scale(1); }
+        }
+        @keyframes ripple {
+          to {
+            transform: scale(4);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
 
       document.addEventListener('DOMContentLoaded', function() {
         createParticles();
         updateLinkByLocation();
         setupFacebookTracking(); // 添加Facebook事件追踪
+        detectHalfScreenAd(); // 新增半屏檢測
 
         const observerOptions = {
           threshold: 0.1,
@@ -736,16 +904,8 @@ src="https://www.facebook.com/tr?id=524853043989985&ev=PageView&noscript=1"
         });
       });
 
-      const style = document.createElement('style');
-      style.textContent = `
-        @keyframes ripple {
-          to {
-            transform: scale(4);
-            opacity: 0;
-          }
-        }
-      `;
-      document.head.appendChild(style);
+      // 視窗大小改變時重新檢測
+      window.addEventListener('resize', detectHalfScreenAd);
     </script>
   </body>
 </html>
